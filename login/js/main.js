@@ -1,4 +1,22 @@
+class User {
+    constructor(username, password, name, email, imageProfile, invitations) {
+        this.username=username;
+        this.name = name;
+        this.email = email;
+        this.imageProfile = imageProfile;
+        this.password = password;
+        this.invitations=invitations;
+    }
+}
 
+function contains(a, obj) {
+    for (key in a) {
+        if (key==obj){
+            return true;
+        }
+    }
+    return false;
+}
 (function ($) {
     "use strict";
 
@@ -21,7 +39,7 @@
     [ Validate ]*/
     var input = $('.validate-input .input100');
 
-    $('.validate-form').on('submit',function(){
+    $("#loginbtn").click(function () {
         var check = true;
 
         for(var i=0; i<input.length; i++) {
@@ -29,6 +47,73 @@
                 showValidate(input[i]);
                 check=false;
             }
+        }
+        if (check==false){
+            return false;
+        }
+
+        var users = JSON.parse(localStorage.getItem("users"));
+
+        var username = $("#username").val();
+        var password = $("#password").val();
+        var val;
+        if(username.length==0 && password.length==0){
+           console.log("invalid login")
+        }
+        else{
+            $.each(users, function (index, value) {
+                if (username==value.username && password==value.password){
+                    val=true;
+                    users["currentUser"].username=value.username;
+                    users["currentUser"].password=value.password;
+                    users["currentUser"].name=value.name;
+                    users["currentUser"].email=value.email;
+                    users["currentUser"].invitations=value.invitations;
+                    users["currentUser"].imageProfile=value.imageProfile;
+                    localStorage.setItem("users", JSON.stringify(users));
+                    window.location.assign("Pages.html");
+                }
+            });
+            console.log("invalid login 2")
+
+   		}
+        
+        return check;
+    });
+
+   
+    $("#regbtn").click(function (event) {
+        var check = true;
+
+        for(var i=0; i<input.length; i++) {
+            if(validate(input[i]) == false){
+                showValidate(input[i]);
+                check=false;
+            }
+        }
+        if (check==false){
+            return false;
+        }
+
+        var users = JSON.parse(localStorage.getItem("users"));
+
+        if (!(contains(users, $("#username").val()))) {
+            if (!(contains(users, $("#email").val()))) {
+                var name = $("#name").val();
+                var username = $("#username").val();
+                var password = $("#pass").val();
+                var email = $("#email").val();
+                var user = new User(username, password, name, email,"https://img.tineye.com/result/f7479eed5d3fd4da70043343f1d7176fcd15b4cc1c67ecfd4d2295efa10964a1?size=160", []);
+                users[user.username]= user;
+
+                localStorage.setItem("users", JSON.stringify(users));
+                window.location.assign("Pages.html");
+            }
+            else {
+                alert("Email already taken.");
+            }
+        } else {
+            alert("Username already taken.");
         }
 
         return check;
@@ -47,13 +132,16 @@
                 return false;
             }
         }
-        else {
-            if($(input).val().trim() == ''){
+        else if ($(input).attr('name') == 'name'){
+            if ($(input).val().trim().length<2){
                 return false;
             }
         }
+        if($(input).val().trim() == ''){
+            return false;
+        }
     }
-
+ 
     function showValidate(input) {
         var thisAlert = $(input).parent();
 

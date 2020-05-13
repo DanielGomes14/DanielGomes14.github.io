@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V2</title>
+	<title>TaskPad</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -28,7 +28,6 @@
 <!--===============================================================================================-->
 </head>
 <body>
-	
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100" style="background-color: #FFD700;" >
@@ -37,7 +36,7 @@
 					<img src="img/logo.png" alt="" title="" />
 				</span>
 				</div>
-				<form class="login100-form validate-form" style="background-color: white;height:60%; width: 100%; padding: 15% 8% 15% 8%;">
+				<form target="frame" class="login100-form validate-form" style="background-color: white;height:60%; width: 100%; padding: 15% 8% 15% 8%;">
 					<div class="wrap-input100 validate-input" data-validate = "Insert a valid username!">
 						<input class="input100" type="text"  id="username" name="username">
 						<span class="focus-input100"  data-placeholder="Username"></span>
@@ -73,6 +72,7 @@
 			</div>
 		</div>
 	</div>
+	<iframe name="frame" style="display: none;"></iframe>
 	
 
 	<div id="dropDownSelect1"></div>
@@ -92,9 +92,8 @@
 <!--===============================================================================================-->
 	<script src="login/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="login/js/main.js"></script>
 	<script src="js/users.js"></script>
-	<script src="js/login.js"></script>
+	<script src="login/js/main.js"></script>
 
 </body>
 </html>
