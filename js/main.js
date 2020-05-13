@@ -52,8 +52,6 @@ $(document).ready(function(){
     });
     $('body').append($mobile_nav);
     $('body').prepend('<button type="button" id="mobile-nav-toggle"><i class="lnr lnr-menu" ></i></button>');
-    $('body').prepend('<div id="mobile-nav-toggle"><a href="Pages.html"><img src="img/logo.png"  style="border-radius: 2%; position:fixed; top:3.5%; width:19vw; height:8vw;max-height:30px; right:5%" alt="" title="" /></a></div>')
-    $('body').prepend('<div id="mobile-nav-toggle" style="position:fixed; top:5%; left: 50%; transform: translate(-50%, -50%);"><h1 class="text-white" style="font-size:8vw">Pages</h1></div>');
     $('body').append('<div id="mobile-body-overly"></div>');
     $('#mobile-nav').find('.menu-has-children').prepend('<i class="lnr lnr-chevron-down"></i>');
 
