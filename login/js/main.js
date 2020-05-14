@@ -145,7 +145,6 @@ function contains(a, obj) {
         }
         else if ($(input).attr('name') == 'confpass'){
             if($(input).val().trim()!= $('#password').val().trim()  && ( $(input).val().trim().length >0  || $('#password').val().trim().length >0 ) ) {
-                console.log("boi")
                 return false
             }
         }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>TaskPad</title>
+	<title>Forgot Password</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -28,6 +28,7 @@
 <!--===============================================================================================-->
 </head>
 <body>
+
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100" style="background-color: #FFD700;" >
@@ -36,32 +37,26 @@
 					<img src="img/logo.png" alt="" title="" />
 				</span>
 				</div>
-				<form target="frame" class="login100-form validate-form" style="background-color: white;height:60%; width: 100%; padding: 15% 8% 15% 8%;">
-					<div class="wrap-input100 validate-input" data-validate = "Insert a valid username!">
-						<input class="input100" type="text"  id="username" name="username">
-						<span class="focus-input100"  data-placeholder="Username"></span>
-					</div>
+				<form target="frame" class="login100-form validate-form" style="background-color: white;height:60%; padding: 77px 55px 33px 55px;">
 
-					<div class="wrap-input100 validate-input" data-validate="Enter the correct password!">
-						<span class="btn-show-pass">
-							<i class="zmdi zmdi-eye"></i>
-						</span>
-						<input class="input100" type="password" id="password" name="password">
-						<span class="focus-input100" data-placeholder="Password"></span>
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+						<input  id="email" class="input100" type="text" name="email">
+						<span class="focus-input100" data-placeholder="Enter your Email"></span>
 					</div>
-							<div> 
-								<a class="txt2" href="Pass.html"> forgot you password? </a>
-							</div>
 
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button id="loginbtn" class="login100-form-btn">
-								Login
+							<button id ="regbtn" class="login100-form-btn"> 
+							  Retrieve Password
 							</button>
 						</div>
 					</div>
-
+					<div class="text-center p-t-115" style="display: block;" >
+						<span class="txt1">
+							An email has been sent
+						</span>
+					</div>
 					<div class="text-center p-t-115">
 						<span class="txt1">
 							Don’t have an account?
@@ -76,16 +71,9 @@
 		</div>
 	</div>
 	<iframe name="frame" style="display: none;"></iframe>
-	<style>
-		@media (max-width: 576px) {
-  .container-login100 {
-    padding: 10%;
-  }
-}
-	</style>
 
 	<div id="dropDownSelect1"></div>
-	
+
 <!--===============================================================================================-->
 	<script src="login/vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
@@ -103,6 +91,5 @@
 <!--===============================================================================================-->
 	<script src="js/users.js"></script>
 	<script src="login/js/main.js"></script>
-
 </body>
-</html>
+</html> 

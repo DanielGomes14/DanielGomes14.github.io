@@ -10,9 +10,9 @@ $(document).ready(function () {
         }
     }
     var users = {
-        "user1": new User("user1", "user", "Miguel Almeida", "user1@ex.pt", "https://img.tineye.com/result/f7479eed5d3fd4da70043343f1d7176fcd15b4cc1c67ecfd4d2295efa10964a1?size=160", []),
-        "user2": new User("user2", "user", "Luís Valentim", "user2@ex.pt", "https://img.tineye.com/result/f7479eed5d3fd4da70043343f1d7176fcd15b4cc1c67ecfd4d2295efa10964a1?size=160", []),
-        "user3": new User("user3", "user", "Tiago Oliveira", "user3@ex.pt", "https://img.tineye.com/result/f7479eed5d3fd4da70043343f1d7176fcd15b4cc1c67ecfd4d2295efa10964a1?size=160", []),
+        "user1": new User("user1", "user1", "Miguel Almeida", "user1@ex.pt", "https://media.istockphoto.com/vectors/man-avatar-profile-male-face-icon-vector-illustration-vector-id1142192538?k=6&m=1142192538&s=170667a&w=0&h=mKkx-3SlGFT_QL10L3zcx_jepev6R7qk2-b7q5XpYA4=", []),
+        "user2": new User("user2", "user2", "Luís Valentim", "user2@ex.pt", "https://media.istockphoto.com/vectors/man-avatar-profile-male-face-icon-vector-illustration-vector-id1142192538?k=6&m=1142192538&s=170667a&w=0&h=mKkx-3SlGFT_QL10L3zcx_jepev6R7qk2-b7q5XpYA4=", []),
+        "user3": new User("user3", "user3", "Tiago Oliveira", "user3@ex.pt", "https://media.istockphoto.com/vectors/man-avatar-profile-male-face-icon-vector-illustration-vector-id1142192538?k=6&m=1142192538&s=170667a&w=0&h=mKkx-3SlGFT_QL10L3zcx_jepev6R7qk2-b7q5XpYA4=", []),
         "currentUser": new User("", "", "", "", "", []),
     };
 
