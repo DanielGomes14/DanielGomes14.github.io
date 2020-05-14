@@ -224,7 +224,7 @@ iframe {
 .input100 {
   font-family: Poppins-Regular;
   font-size: 15px;
-  color: #555555;
+  color: #bfbfbf;
   line-height: 1.2;
 
   display: block;
@@ -259,7 +259,7 @@ iframe {
   -moz-transition: all 0.4s;
   transition: all 0.4s;
 
-  background: #6a7dfe;
+  background: #bfbfbf;
   background: -webkit-linear-gradient(left, black, #bfbfbf);
   background: -o-linear-gradient(left, black, #bfbfbf);
   background: -moz-linear-gradient(left, black, #bfbfbf);
@@ -269,7 +269,7 @@ iframe {
 .focus-input100::after {
   font-family: Poppins-Regular;
   font-size: 15px;
-  color: #999999;
+  color: #bfbfbf;
   line-height: 1.2;
 
   content: attr(data-placeholder);
@@ -279,7 +279,7 @@ iframe {
   top: 16px;
   left: 0px;
   padding-left: 5px;
-
+  background-color: #bfbfbf
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
@@ -326,7 +326,7 @@ iframe {
 }
 
 .btn-show-pass:hover {
-  color: #6a7dfe;
+  color: #bfbfbf;
   color: -webkit-linear-gradient(left, black, #bfbfbf);
   color: -o-linear-gradient(left, black, #bfbfbf);
   color: -moz-linear-gradient(left, black, #bfbfbf);
@@ -334,7 +334,7 @@ iframe {
 }
 
 .btn-show-pass.active {
-  color: #6a7dfe;
+  color: #bfbfbf;
   color: -webkit-linear-gradient(left, black, #bfbfbf);
   color: -o-linear-gradient(left, black, #bfbfbf);
   color: -moz-linear-gradient(left, black, #bfbfbf);
