@@ -126,6 +126,7 @@ function contains(a, obj) {
         });
     });
 
+//validate input for login and register
     function validate (input) {
         if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
             if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
@@ -135,6 +136,17 @@ function contains(a, obj) {
         else if ($(input).attr('name') == 'name'){
             if ($(input).val().trim().length<2){
                 return false;
+            }
+        }
+        else if( $(input).attr('name') =='username' || $(input).attr('name') == 'password'){
+            if ($(input).val().trim().length<5){
+                return false;
+            }
+        }
+        else if ($(input).attr('name') == 'confpass'){
+            if($(input).val().trim()!= $('#password').val().trim()  && ( $(input).val().trim().length >0  || $('#password').val().trim().length >0 ) ) {
+                console.log("boi")
+                return false
             }
         }
         if($(input).val().trim() == ''){
