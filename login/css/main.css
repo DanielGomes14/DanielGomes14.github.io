@@ -341,7 +341,43 @@ iframe {
   color: linear-gradient(left, black, #bfbfbf);
 }
 
+.list-group-item {
+  user-select: none;
+}
 
+.list-group input[type="checkbox"] {
+  display: none;
+}
+
+.list-group input[type="checkbox"] + .list-group-item {
+  cursor: pointer;
+}
+
+.list-group input[type="checkbox"] + .list-group-item:before {
+  content: "\2713";
+  color: transparent;
+  font-weight: bold;
+  margin-right: 1em;
+}
+
+.list-group input[type="checkbox"]:checked + .list-group-item {
+  background-color: #bfbfbf;
+  color: #FFF;
+}
+
+.list-group input[type="checkbox"]:checked + .list-group-item:before {
+  color: inherit;
+}
+
+.fa-trash{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  size: 50px;
+}
+.card-header{
+  position: relative;
+}
 
 /*------------------------------------------------------------------
 [ Button ]*/
@@ -478,6 +514,7 @@ iframe {
     visibility: visible;
     opacity: 1;
   }
+
 }
 
 

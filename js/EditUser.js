@@ -74,14 +74,14 @@ $(document).ready(function () {
         }
 
         if(users["currentUser"].name!=$("#name").val()){
-         users[["currentUser"].username].name=$("#name").val();
+         users[users["currentUser"].username].name=$("#name").val();
     	 users["currentUser"].name=$("#name").val(); 
     
          }
 
         if(users["currentUser"].email!=$("#email").val()){
         	 if (!(contains(users, $("#email").val()))){
-        	 	 users[["currentUser"].username].email=$("#email").val();
+        	 	 users[users["currentUser"].username].email=$("#email").val();
         	 	 users["currentUser"].email=$("#email").val();
         	 }
         	 else{
@@ -90,7 +90,7 @@ $(document).ready(function () {
         	 }
          }
           if(users["currentUser"].password!=$("#password").val()){
-         users[["currentUser"].username].password=$("#password").val();
+         users[users["currentUser"].username].password=$("#password").val();
     	 users["currentUser"].password=$("#password").val(); 
     
          }
