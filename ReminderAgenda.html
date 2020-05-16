@@ -83,6 +83,24 @@
 
 
         <div class="container" style="width: 100%; position: absolute; left: 0; right: 0; padding-top: 71px;">
+            <!-- The Modal -->
+            <div id="myModal" class="modal"  style="width: 100%; padding-top: 71px;">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <h1>Reminder</h1>
+                <br>
+                <span>Date: <input></input></span>
+                <span style="padding-top: 10px;">Time: <input ></input></span>
+                <span style="padding-top: 10px;">Note: <input></input></span>
+                <br>
+                <div class="row">
+                    <a class="close genric-btn circle" style="width: 70%; text-align: center; color: black; background-color: #FFD700; font-size: 20px; ">Add <i class="fa fa-check" aria-hidden="true"></i></a>
+                    <button class="close" style="text-align: center; width: 30%; font-size: 20px; color: red;">Cancel</button>
+                </div>
+            </div>
+
+            </div>
             <div class="col-sm-12">  
                 <span id="editbtn" class="login100-form-btn " style=" width: 100vw; position: relative; margin-left: -50vw; left: 50%; background-color: #bfbfbf;">
                     Today - Thu Oct 23
@@ -116,18 +134,84 @@
             </div>
 
             <div class="container" style="font-size: 80px;color: #000000;"  >
-                <div class="title text-center">
+                <div class="title text-center"   id="myBtn">
                     <br>
                     <br>
                     <h1 class="mb-10">Add A Reminder</h1>
                     <br>
                     <br>
+                    <i class="fa fa-plus-circle fa-10x"style=" position: absolute;left: 50%; transform: translate(-50%, -50%);" ></i>
+                    <br>
                     <br>
                 </div>
-                <i class="fa fa-plus fa-10x"style=" position: absolute;left: 50%; transform: translate(-50%, -50%);" ></i>
             </div>
         </div>
-            
+
+        <style>
+            /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+        </style>
+        <script>
+            var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+        </script>  
         <script src="js/vendor/jquery-2.2.4.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="js/vendor/bootstrap.min.js"></script>			
