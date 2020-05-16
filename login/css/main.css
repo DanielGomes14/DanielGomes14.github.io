@@ -324,6 +324,11 @@ iframe {
   -moz-transition: all 0.4s;
   transition: all 0.4s;
 }
+.btn-group button {
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+}
 
 .btn-show-pass:hover {
   color: #bfbfbf;
