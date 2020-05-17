@@ -7,7 +7,12 @@ $(document).ready(function () {
         var spec=value.split("/./");
         $("#grid").append(`
             <div class="col-sm-12">  
-                <span id="editbtn" class="login100-form-btn " style=" width: 100vw; position: relative; margin-left: -50vw; left: 50%; background-color: #bfbfbf;">`+spec[0]+`</span>
+                <div class="container-login100-form-btn" style=" padding-top:0%" >
+                    <div class="wrap-login100-form-btn" style="z-index:0;width: 100vw; position: relative; margin-left: -50vw; left: 50%; border-radius: 0%;">
+                        <div class="login100-form-bgbtn"></div>
+                        <button id="editbtn" class="login100-form-btn " style="width: 100vw; position: relative; margin-left: -50vw; left: 50%;">`+spec[0]+`</button>
+                    </div>
+                </div>
                 <div class="row col-sm-12" style="display: table; min-height: 100px ;width: 100vw; position: relative; margin-left: -50vw; left: 50%;">
                     <span style="display: table-cell; vertical-align: middle; text-align: center; border-right:  6px solid white; width: 30%;">`+spec[1]+`</span>
                     <span style="display: table-cell; vertical-align: middle; text-align: center; width: 70%;">`+spec[2]+`</span>

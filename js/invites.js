@@ -49,21 +49,21 @@ var users = JSON.parse(localStorage.getItem("users"));
    		for(i =0; i< inviterpages.length;i++){
    			if (inviterpages[i]==pagename)
    				user.pages.push(inviterpages[i])
-   				users[users["currentUser"].username].pages.push(inviterpages[i])
+                   users[users["currentUser"].username].pages.push(inviterpages[i])
+                   users["currentUser"].pages.push(inviterpages[i])
    				break;
    		}
    		user.invitations=rm.splice(counter,1)
-   		users[users["currentUser"].username].invitations=rm.splice(counter,1)
+        users[users["currentUser"].username].invitations=rm.splice(counter,1)
+        users["currentUser"].invitations=rm.splice(counter,1)
    		localStorage.setItem("users", JSON.stringify(users));
         location.reload();
    }
    else{
-   	console.log("ola")
    	    var counter=parseInt(id.substring(7,8));
    		user.invitations.splice(counter,1)
-   		console.log(user.invitations)
-   		users[users["currentUser"].username].invitations=user.invitations
-   		console.log(users[users["currentUser"].username].invitations)
+        users[users["currentUser"].username].invitations=user.invitations
+        users["currentUser"].invitations=user.invitations
    	    localStorage.setItem("users", JSON.stringify(users));
     	location.reload();
     }
