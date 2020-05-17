@@ -3,7 +3,6 @@ $(document).ready(function () {
  var user= users["currentUser"];
  var rm=user.invitations;
  var counter=-1
- console.log(rm)
  $.each(rm, function (index, value) {
  	var spec=value.split("/");
  	counter+=1
@@ -36,34 +35,31 @@ $(document).ready(function () {
 });
 
 function checkButton(btn) {
-var users = JSON.parse(localStorage.getItem("users"));
+ var users = JSON.parse(localStorage.getItem("users"));
  var user= users["currentUser"];
  var rm=user.invitations;
  var id = String(btn.id)
-   if(id.includes("joinbtn")){
-   		var counter=parseInt(id.substring(7,8))
+ if(id.includes("joinbtn")){
+        var counter=parseInt(id.substring(7,8))
    		var inviter=rm[counter].split("/")[1]
-   		console.log(inviter)
    		var pagename=rm[counter].split("/")[0]
    		var inviterpages=users[inviter].pages
    		for(i =0; i< inviterpages.length;i++){
-   			if (inviterpages[i]==pagename)
-   				user.pages.push(inviterpages[i])
-                   users[users["currentUser"].username].pages.push(inviterpages[i])
-                   users["currentUser"].pages.push(inviterpages[i])
-   				break;
-   		}
-   		user.invitations=rm.splice(counter,1)
-        users[users["currentUser"].username].invitations=rm.splice(counter,1)
-        users["currentUser"].invitations=rm.splice(counter,1)
+   			if (inviterpages[i]==pagename) {
+                user.pages.push(inviterpages[i])
+                users[users["currentUser"].username].pages.push(inviterpages[i])
+                break;
+            }
+        }
+   		user.invitations.splice(counter,1);
+        users[users["currentUser"].username].invitations.splice(counter,1);
    		localStorage.setItem("users", JSON.stringify(users));
         location.reload();
    }
    else{
-   	    var counter=parseInt(id.substring(7,8));
-   		user.invitations.splice(counter,1)
-        users[users["currentUser"].username].invitations=user.invitations
-        users["currentUser"].invitations=user.invitations
+        var counter=parseInt(id.substring(9,10))
+   		user.invitations.splice(counter,1);
+        users[users["currentUser"].username].invitations.splice(counter,1);
    	    localStorage.setItem("users", JSON.stringify(users));
     	location.reload();
     }
