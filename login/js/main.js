@@ -1,5 +1,5 @@
 class User {
-    constructor(username, password, name, email, imageProfile, invitations) {
+    constructor(username, password, name, email, imageProfile, invitations, pages, reminders) {
         this.username=username;
         this.name = name;
         this.email = email;
@@ -7,6 +7,7 @@ class User {
         this.password = password;
         this.invitations=invitations;
         this.pages=pages;
+        this.reminders=reminders;
     }
 }
 
@@ -72,6 +73,7 @@ function contains(a, obj) {
                     users["currentUser"].invitations=value.invitations;
                     users["currentUser"].imageProfile=value.imageProfile;
                     users["currentUser"].pages=value.pages;
+                    users["currentUser"].reminders=value.reminders;
                     localStorage.setItem("users", JSON.stringify(users));
                     window.location.assign("Pages.html");
                 }
@@ -105,7 +107,7 @@ function contains(a, obj) {
                 var username = $("#username").val();
                 var password = $("#pass").val();
                 var email = $("#email").val();
-                var user = new User(username, password, name, email,"https://img.tineye.com/result/f7479eed5d3fd4da70043343f1d7176fcd15b4cc1c67ecfd4d2295efa10964a1?size=160", [], []);
+                var user = new User(username, password, name, email,"https://img.tineye.com/result/f7479eed5d3fd4da70043343f1d7176fcd15b4cc1c67ecfd4d2295efa10964a1?size=160", [], [], []);
                 users[user.username]= user;
 
                 localStorage.setItem("users", JSON.stringify(users));

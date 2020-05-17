@@ -10,18 +10,20 @@ $(document).ready(function () {
     })
 
     function updatedata(){
-	$('#username2').html(users["currentUser"].username);
-	$('#name').attr('placeholder', users["currentUser"].name);
-	$('#name').val(users["currentUser"].name);
-	$('#name2').html(users["currentUser"].name);
-	$('#email').attr('placeholder', users["currentUser"].email);
-	$('#email').val(users["currentUser"].email);
-	$('#password').val(users["currentUser"].password);
-	$('#email2').html(users["currentUser"].email);
-    $('#profilePic').attr('src', users["currentUser"].imageProfile);
-    $('#confirmbtn').hide();
-    $('#cancelbtn').hide();
-    }  
+        $('#username2').html(users["currentUser"].username);
+        $('#name').attr('placeholder', users["currentUser"].name);
+        $('#name').val(users["currentUser"].name);
+        $('#name2').html(users["currentUser"].name);
+        $('#email').attr('placeholder', users["currentUser"].email);
+        $('#email').val(users["currentUser"].email);
+        $('#password').val(users["currentUser"].password);
+        $('#email2').html(users["currentUser"].email);
+        $('#profilePic').attr('src', users["currentUser"].imageProfile);
+        $('#confirmbtn').hide();
+        $('#cancelbtn').hide();
+    }
+    
+
     function teste(){
     	$("input[type=text]").keyup(function() {
             $('#confirmbtn').show();
