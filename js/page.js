@@ -100,6 +100,7 @@ $.each(page, function (index, value) {
             url = url.split("_").join(" ");
             var page;
             var tasks;
+            var temptopic;
             $.each(pages, function (index, value) {
                 if (value.split("/")[0]==url){
                     page=value;
@@ -114,7 +115,6 @@ $.each(page, function (index, value) {
                 }
             })
             tasks=tasks.split("/");
-                
                   $("#topicID").val(topic);
                   $.each(tasks, function (index, value) {
                       value=value.split("--")
@@ -126,12 +126,10 @@ $.each(page, function (index, value) {
                   
             $("#addNote").click(function (event) {
 
-                var index=document.getElementById("grid2").childElementCount/2
+                var indexTk=document.getElementById("grid2").childElementCount/2
                 var pageEdit=$("#topicID").val();
                 var string="";
-                for(i =1; i<= index;i++){
-                    string+=$("#task"+i).val()+"/"
-                }
+                var allTasks=[]
                 $.each(page, function (index, value) {
                     if (index==0){
                         return true;
@@ -144,16 +142,70 @@ $.each(page, function (index, value) {
                         }
                     }
                 })
-                
+                topicToChange=topicToChange.split("/")
+                for(i =1; i<= topicToChange.length-1;i++){
+                    allTasks.push($("#task"+i).val())
+                }
+                if (indexTk>topicToChange.length-1){
+                    for(i =topicToChange.length; i<= indexTk;i++){
+                        if (i==indexTk){
+                            string+=$("#task"+i).val()+"--false"
+                        } else{
+                            string+=$("#task"+i).val()+"--false/"
+                        }
+                    }
+                }
+                var temp="";
+                $.each(topicToChange, function (index, value) {
+                    if (index==0){
+                       value=pageEdit
+                    } else{4
+                        value=(allTasks[index-1]+"--"+value.split("--")[1])
+                    }
+                    if(index==topicToChange.length-1){
+                        if (indexTk>topicToChange.length-1){
+                            temp+=value+"/"
+                        } else{
+                            temp+=value
+                        }
+                    }
+                    else {
+                        temp+=value+"/"
+                    }
+                    
+                  
+                });
+
+                temp+=string
+                console.log(temp)
                 page.splice(indexToRemove,1);
-                console.log(page)
-    
-            
-            });
-                 
-          }
-          else if(id.includes("addTopicbtn")){
+                page.push(temp)
+                var final=""
+                $.each(page, function (index, value) {
+                    if(index==page.length-1){
+                        final+=value
+                    }
+                    else{
+                        final+=value+"//"
+                    }
+                   
+                })
+                var tmpind=0
+                $.each(user.pages, function (index, value) {
+                    if (value.split("/")[0]==url){
+                        tmpind=index
+                        return false;
+                    }
+                })
+                user.pages[tmpind]=final
+                users[user.username].pages[tmpind]=final
+                localStorage.setItem("users", JSON.stringify(users));
+                location.reload();
+                                
+          });
+          
+         }
+         else if(id.includes("addTopicbtn")){
             document.getElementById("topicID").innerHTML = "";
            }
-       
-         }
+        }
