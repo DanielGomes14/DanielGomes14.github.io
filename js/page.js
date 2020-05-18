@@ -71,6 +71,7 @@ $.each(page, function (index, value) {
         $("#grid2").append(`
             <span>Task `+(index/2+1)+`: </span><input value="`+$("#taskToAdd").val()+`" style="width:100%" id="task`+(index/2+1)+`"></input>
         `)
+        $("#taskToAdd").val("");
     });
 
   
