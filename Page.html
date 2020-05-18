@@ -56,7 +56,7 @@
             <div class="container">
                 <div class="row align-items-center justify-content-between d-flex">
                     <div id="mobile-nav-toggle" style="position:fixed; top:35.5px; left: 50%; transform: translate(-50%, -50%);">
-                        <h1 class="text-white" style="font-size:120%">Project1</h1>
+                        <h1 class="text-white" style="font-size:120%">Page</h1>
                     </div>
                     <div id="mobile-nav-toggle" style="position:fixed; top:37px; left: 83%; transform: translate(-50%, -50%);">
                         <a href="Pages.html">
@@ -85,13 +85,18 @@
         <!-- Start price Area -->
         <section class="price-area section-gap" id="price">
             <div class="container" >
-                <div class="row d-flex justify-content-center">
-                    <div class="menu-content pb-60 col-lg-8" >
+                <div class="row d-flex justify-content-center" style="width: 100vw; position: relative; margin-left: -50vw; left: 50%;">
+                    <div class="menu-content pb-60" style="width: 80%;">
                         <div class="title text-center">
-                            <h1 class="mb-10" id="title"></h1>
-                            <p>Add topics and tasks to your page. Click on each task, in order to complete them!</p>
+                            <h1 class="mb-10" id="pageTitle" style="font-size: 50px;" ></h1>
+                            <p id="title"></p>
                         </div>
                     </div>
+                    <a href="" id="settings">
+                        <div style="font-size: 50px;" style="width: 20%; margin-right: 0px;" id="sets">
+                            <i class="fa fa-cog  fa-10x " style="color: black;"></i>
+                        </div>
+                    </a>
                 </div>						
         <div class="container">
         <div class="row" id="grid">
@@ -100,7 +105,18 @@
 </div>
             </div>	
         </section>
-        <!-- End price Area -->
+        <div id="myModal" class="modal"  style="width: 100%; padding-top: 71px;">
+           <div class="modal-content">
+               <span>Topic Name:</span><input style="font-size:40px ;" id="topicID" value=""></input>
+               <br>
+               <div id="grid2"></div>
+               <br>
+               <div class="row" style="padding-left: 4%;">
+                   <a id="addNote" class="genric-btn circle" style="width: 56%; text-align: center; color: black; background-color: #FFD700; font-size: 20px; ">Confirm Changes<i class="fa fa-check" aria-hidden="true"></i></a>
+                   <button class="close" style="text-align: center; width: 40%; font-size: 20px; color: red;">Cancel Changes</button>
+               </div>
+           </div>
+       </div>
         <div class="container" style="font-size: 100px;color: #000000;"  >
             <div class="title text-center">
                             <h1 class="mb-10">Click the button bellow to add More Topics</h1>
@@ -108,13 +124,58 @@
                             <br>
                             <br>
                         </div>
-             <i class="fa fa-plus-circle fa-10x"style=" position: absolute;left: 50%; transform: translate(-50%, -50%);" ></i>
+             <button onclick="checkButton(this)" id="addTopicbtn"><i class="fa fa-plus-circle fa-10x"style=" position: absolute;left: 50%; transform: translate(-50%, -50%);" ></i></button>
+            
+            
         </div>
 
+        <style>
+            @media screen and (max-width: 799px){
+                #sets{
+                    font-size: 10px;
+                }
+                #pagetitle{
+                    font-size: 10px;
+                }
+           }
+            /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
 
-       
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
 
-       
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+        </style>
 
         <script src="js/vendor/jquery-2.2.4.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -132,7 +193,7 @@
         <script src="js/mail-script.js"></script>	
         <script src="js/main.js"></script>	
         <script src="js/users.js"></script>
-        <script src="js/personalpage.js"></script>
+        <script src="js/page.js"></script>
     </body>
 </html>
 
