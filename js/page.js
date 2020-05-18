@@ -38,7 +38,7 @@ $.each(page, function (index, value) {
                  <div class="container-login100-form-btn">
                  <div class="wrap-login100-form-btn btn-group" style="border-top-left-radius:0px;border-top-right-radius:0px">
                      <div class="login100-form-bgbtn"></div>
-                     <button id="editbtn` + counter + `" class="login100-form-btn "  onclick="checkButton(this,'`+topic+`')" >Edit/Add Tasks</button>
+                     <button id="editbtn` + counter + `" class="login100-form-btn temp"  onclick="checkButton(this,'`+topic+`')" >Edit/Add Tasks</button>
                      </div>
                  </div>
         </div>
@@ -65,29 +65,15 @@ $.each(page, function (index, value) {
     });
 
     
-    var modal = document.getElementById("myModal");
+    
+    $("#addATask").click(function (event) {
+        var index=document.getElementById("grid2").childElementCount
+        $("#grid2").append(`
+            <span>Task `+(index/2+1)+`: </span><input value="`+$("#taskToAdd").val()+`" style="width:100%" id="task`+(index/2+1)+`"></input>
+        `)
+    });
 
-
-    
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-    
-    // When the user clicks on the button, open the modal
-    btn.onclick = function() {
-      modal.style.display = "block";
-    }
-    
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-      modal.style.display = "none";
-    }
-    
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
+  
 });
 
     function checkButton(btn, topic) {
@@ -99,13 +85,16 @@ $.each(page, function (index, value) {
                     modal.style.display = "none";
                   }
                 modal.style.display = "block";
-
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                      modal.style.display = "none";
+                    }
+                  }
         if(id.includes("editbtn")){
             document.getElementById("grid2").innerHTML = "";
             var users = JSON.parse(localStorage.getItem("users"));
             var user= users["currentUser"];
             var rm = users["currentUser"].pages;
-            console.log(topic)
             var pages = user.pages
             var url = window.location.href.split("#")[1];
             url = url.split("_").join(" ");
@@ -118,25 +107,49 @@ $.each(page, function (index, value) {
                 }
             })
             page=page.split("//")
-            console.log(page)
             $.each(page, function (index, value) {
                 if (value.split("/")[0]==topic){
                     tasks=value;
                     return tasks;
                 }
             })
-            console.log(tasks);
             tasks=tasks.split("/");
                 
-                 
                   $("#topicID").val(topic);
                   $.each(tasks, function (index, value) {
                       value=value.split("--")
                       if (index!=0){
                     $("#grid2").append(
-                        `<input value="`+value[0]+`" style="width: 80%;" id="task`+index+`"></input>`
+                        `<span>Task `+index+`: </span><input value="`+value[0]+`" style="width:100%" id="task`+index+`"></input>`
                     )}
                   })
+                  
+            $("#addNote").click(function (event) {
+
+                var index=document.getElementById("grid2").childElementCount/2
+                var pageEdit=$("#topicID").val();
+                var string="";
+                for(i =1; i<= index;i++){
+                    string+=$("#task"+i).val()+"/"
+                }
+                $.each(page, function (index, value) {
+                    if (index==0){
+                        return true;
+                    }
+                    else{
+                        if (value.split("/")[0]==topic){
+                            topicToChange=value;
+                            indexToRemove=index;
+                            return topicToChange;
+                        }
+                    }
+                })
+                
+                page.splice(indexToRemove,1);
+                console.log(page)
+    
+            
+            });
                  
           }
           else if(id.includes("addTopicbtn")){
