@@ -6,10 +6,11 @@ $(document).ready(function () {
 
   $.each(pages, function (index, value) {
     $("#grid").append(`
+    <a href="PersonalPage1.html#`+value.split("//")[0].split("/")[0].split(" ").join("_")+`">
     <div class="card  bg-dark text-white " style="margin-bottom:15px; ">
     <div class="card-header">`+value.split("//")[0].split("/")[0]+`</div>
     <div class="card-body bg-light  text-dark">`+value.split("//")[0].split("/")[1]+`</div>
-    </div>
+    </div></a>
     `);
   });
 
