@@ -36,28 +36,43 @@ $(document).ready(function () {
 
 function checkButton(btn) {
  var users = JSON.parse(localStorage.getItem("users"));
+ var pagemembers=JSON.parse(localStorage.getItem("pagemembers"));
  var user= users["currentUser"];
  var rm=user.invitations;
  var id = String(btn.id)
+ var pagememberskey;
+
  if(id.includes("joinbtn")){
         var counter=parseInt(id.substring(7,8))
    		var inviter=rm[counter].split("/")[1]
-   		var pagename=rm[counter].split("/")[0]
-           var inviterpages=users[inviter].pages
+        var pagename=rm[counter].split("/")[0]
+        var pagedescrip=rm[counter].split("/")[2]
+        var inviterpages=users[inviter].pages
    		for(i =0; i< inviterpages.length;i++){
    			if (inviterpages[i].split("/")[0]==pagename) {
+                pagememberskey=pagename+"/"+pagedescrip;
+                console.log(pagememberskey);
+                console.log(pagemembers[pagememberskey].personlist)
+               
+                var mbrsarr = new Array();
+                mbrsarr= pagemembers[pagememberskey].personlist
+                mbrsarr.push(String(user.username))
+                pagemembers[pagememberskey].personlist=mbrsarr
                 user.pages.push(inviterpages[i])
                 users[users["currentUser"].username].pages.push(inviterpages[i])
                 break;
             }
         }
+
    		user.invitations.splice(counter,1);
         users[users["currentUser"].username].invitations.splice(counter,1);
         localStorage.setItem("users", JSON.stringify(users));
+        localStorage.setItem("pagemembers", JSON.stringify(pagemembers));
         location.reload()
    }
    else{
         var counter=parseInt(id.substring(9,10))
+     
    		user.invitations.splice(counter,1);
         users[users["currentUser"].username].invitations.splice(counter,1);
    	    localStorage.setItem("users", JSON.stringify(users));
