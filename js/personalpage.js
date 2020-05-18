@@ -45,9 +45,21 @@ $.each(page, function (index, value) {
             </div>`);
     var temp=index;
     $.each(task, function (index, value) {
-        $("#tasks"+temp).append(`
-        <input type="checkbox" name="checkboxInputName" value="`+task+`"  id="`+topic+counter+`" />
-        <label class="list-group-item" for="`+topic+counter+`">`+task+`</label>`)
-        counter+=1;})
+    	tmp=String(task[index]).split("--")
+    	if(tmp[1]=="false"){
+    	$("#tasks"+temp).append(`
+        <input type="checkbox" name="checkboxInputName" value="`+tmp[0]+`"  id="`+topic+counter+`" />
+        <label class="list-group-item" for="`+topic+counter+`">`+tmp[0]+`</label>`)
+        counter+=1;
+    	  }
+    	else{
+    		$("#tasks"+temp).append(`
+        <input type="checkbox" style=""name="checkboxInputName" value="`+tmp[0]+`"  id="`+topic+counter+`" checked>
+        <label class="list-group-item" for="`+topic+counter+`">`+tmp[0]+`</label>`)
+        counter+=1;
+    	}  
+
+
+        })
     });
 });	
