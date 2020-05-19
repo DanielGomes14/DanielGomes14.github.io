@@ -1,4 +1,11 @@
 $(document).ready(function () {
+    $('[data-toggle="popover"]').each(function() {
+
+        $(this).placement = 'right';// For dynamic position
+        $(this).boundary= 'right'; // Used for tooltip boundary range
+      });
+      
+    $('[data-toggle="popover"]').popover();
     var users = JSON.parse(localStorage.getItem("users"));
     var pagemembers = JSON.parse(localStorage.getItem("pagemembers"));
     var user= users["currentUser"];
@@ -28,3 +35,4 @@ $(document).ready(function () {
 
 
 });    
+

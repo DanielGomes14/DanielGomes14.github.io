@@ -87,17 +87,93 @@
 	<div class ="container " style="padding-top: 85px;">
               <div  id="headertext" class="menu-content pb-60 col-lg-12" >
                         <div class="title text-center" style="text-align: center;">
-                            <h1 class="mb-10">Pages</h1>
-                            <p>Select one of your Pages and work on them!</p>
+                            <h1 class="mb-10">Page Settings</h1>
+
                         </div>
-                </div>
-    
-            
+                        <h3>Name</h3>
+                        <hr class="new2" style="border: 1px solid black;">
+                        <div class="input-group mb-3">
+                          <input id="pagetitle" type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon2">
+                          <div class="input-group-append">
+                            <div class="container-login100-form-btn">
+                              <div class="wrap-login100-form-btn" style="border-radius:0%; border-top-right-radius: 15%; border-bottom-right-radius: 15%;">
+                                  <div class="login100-form-bgbtn"></div>
+                                  <button id="editbtn" class="login100-form-btn ">Rename</button>
+                              </div>
+                          </div>
+                          </div>
+                        </div>
+                        <h3>Current Members</h3>
+                        <hr class="new2" style="border: 1px solid black;">
+                        <div class="d-flex justify-content-center">
+                        <div id="descrparea" style="padding-top:20px;padding-left: 10px;align-self: center; width:22rem ; text-align: left ;background-color: #fefefe; box-shadow: 0px 0px 35px #595953; margin-top:30px">
+                          <div class="row" style="width: 100%;"><div style="width: 80%; padding-left: 20px;"><h5>Mario Silva</h5></div>
+                            <div style="width: 20%; text-align: right;"><i  class="fa fa-trash fa-lg" aria-hidden="true"></i></div>
+                          </div>
+                          <div class="row" style="width: 100%;"><div style="width: 80%; padding-left: 20px;"><h5>Daniel Gomes</h5></div>
+                          <div style="width: 20%; text-align: right;"><i  class="fa fa-trash fa-lg" aria-hidden="true"></i></div>
+                        </div>
+                        <div class="row" style="width: 100%;"><div style="width: 80%; padding-left: 20px;"><h5>Luis Valentim</h5></div>
+                        <div style="width: 20%; text-align: right;"><i  class="fa fa-trash fa-lg" aria-hidden="true"></i></div>
+                      </div>
+                         
+                    </div>
+                        </div>
+                    <br>
+                    
+                    <h3 style="">Page Description</h3>
+                    <hr class="new2" style="border: 1px solid black;">
+                    <br>
+                    <br>
+                    <div class="input-group">
+                      <textarea class="form-control" aria-label="With textarea" style="max-height: 200px;resize: none;"></textarea>
+                      <div class="input-group-append">
+                        <div class="container-login100-form-btn">
+                          <div class="wrap-login100-form-btn" style="border-radius:0%; border-top-right-radius: 15%; border-bottom-right-radius: 15%; padding-top: 6px;">
+                              <div class="login100-form-bgbtn"></div>
+                              <button id="editbtn"  data-container="body" data-toggle="popover" data-placement="bottom" data-content="Page Description changed with success!" class="login100-form-btn ">Change</button>
+                          </div>
+                      </div>
+                      </div>
+                    </div>
+              </div>
+     
 
     </div>
-     
    
         <style>
+        
+          .h5{
+            width:22rem;
+          }
+          
+             
+
+          
+          .fa-trash{
+            position: static;
+          }
+   @media only screen and (max-width: 799px){
+            .mb-10 {
+              display: none;
+            }
+            hr{
+                max-width:100vw;
+                position: relative; 
+                margin-left: -50vw; 
+                left: 50%;
+            }
+            .popover-body{
+              max-width: 20rm;
+            }
+                     
+           }
+           @media only screen and (max-width: 400px){
+           #descrparea{
+              min-width:15rem ;
+           }
+                     
+           }      
                              /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -111,7 +187,9 @@
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-
+h5{
+              padding-bottom: 20px;
+            }
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
@@ -138,7 +216,6 @@
 
     </style> 
 
-        </style>
         <script src="js/vendor/jquery-2.2.4.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="js/vendor/bootstrap.min.js"></script>			
