@@ -24,7 +24,7 @@ $(document).ready(function () {
         "currentUser": new User("", "", "", "", "", [], [], []),
     };
     var pagemembers = {
-        "Project 1/This project was made to build a mobile app.": new PageMember("Project 1/This project was made to build a mobile app.//Topic A/Task 1--true/Task 2--true/Task 3--false//Topic B/Task 1--false/Task 2--true//Topic C/Task 1--true/Task 2--false/Task 3--false",["user1"]),
+        "Project 1/This project was made to build a mobile app.": new PageMember("Project 1/This project was made to build a mobile app.//Topic A/Task 1--true/Task 2--true/Task 3--false//Topic B/Task 1--false/Task 2--true//Topic C/Task 1--true/Task 2--false/Task 3--false",["user1","user3"]),
         "Personal Page/My daily routine": new PageMember("Personal Page/My daily routine//Shopping Cart/Buy fruit--false/Buy meat--false",["user1"]),
         "Personal Page/My daily to-do shores": new PageMember("Personal Page/My daily to-do shores",["user2"]),
         "A nice Page/Project for distributed systems.":new PageMember("A nice Page/Project for distributed systems.",["user2"]),

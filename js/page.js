@@ -94,6 +94,7 @@ $.each(page, function (index, value) {
         if(id.includes("editbtn")){
             document.getElementById("grid2").innerHTML = "";
             var users = JSON.parse(localStorage.getItem("users"));
+            var pagemembers=JSON.parse(localStorage.getItem("pagemembers"));
             var user= users["currentUser"];
             var rm = users["currentUser"].pages;
             var pages = user.pages
@@ -197,10 +198,49 @@ $.each(page, function (index, value) {
                         tmpind=index
                         return false;
                     }
+                });
+                var pagemembers=JSON.parse(localStorage.getItem("pagemembers"));
+                var flag=false;
+                $.each(pagemembers,function(index,value){
+                    var indpage=String(value.pagename)
+
+                    if(indpage.includes(url)){
+                        pagemembers[index].pagename=final
+                        console.log(pagemembers[index].personlist)
+                        $.each(pagemembers[index].personlist,function(index,value){
+                            var counter=-1;
+                            flag=false;
+                            if(users[value] != user){
+                                for(i = 0;i<users[value].pages.length;i++){
+                                console.log(users[value])
+                                counter++
+                                console.log(users[value].pages[i].split("/")[0])
+                                console.log(url)
+                                if(users[value].pages[i].split("/")[0]==url){
+                                    console.log(users[value].pages)
+                                    users[value].pages[i]=final;
+                                    console.log("entrei")
+                                    break
+                                }
+                                else if(counter==users[value].pages.length-1){
+                                     users[value].pages.push(final)
+                                     console.log("entrei2")
+                                      break;
+                                    
+                                }
+                            }
+                            }
+                     
+
+                        })
+                        
+                    }
+
                 })
                 user.pages[tmpind]=final
                 users[user.username].pages[tmpind]=final
                 localStorage.setItem("users", JSON.stringify(users));
+                localStorage.setItem("pagemembers",JSON.stringify(pagemembers))
                 location.reload();
                                 
           });
