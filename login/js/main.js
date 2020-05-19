@@ -85,7 +85,28 @@ function contains(a, obj) {
         return check;
     });
 
-   
+    $("#retPass").click(function(event){
+        var check = true;
+
+        for(var i=0; i<input.length; i++) {
+            if(validate(input[i]) == false){
+                showValidate(input[i]);
+                check=false;
+            }
+        }
+        if (check==false){
+            return false;
+        }
+        var x = document.getElementById("emailsent");
+        var y = document.getElementById("email");
+        if (x.style.display === "none" & y.value!="") {
+            x.style.display = "block";
+          } else {
+            x.style.display = "none";
+          }
+    })
+
+
     $("#regbtn").click(function (event) {
         var check = true;
 

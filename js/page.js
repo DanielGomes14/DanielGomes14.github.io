@@ -15,6 +15,7 @@ page=page.split("//")
 
 $("#title").html(page[0].split("/")[1]);
 $("#pageTitle").html(page[0].split("/")[0]);
+$("#settings").attr("href","PageSettings.html#"+page[0].split("/")[0].split("//")[0].split("/")[0].split(" ").join("_"));
 
 $.each(page, function (index, value) {
     if (index==0){
