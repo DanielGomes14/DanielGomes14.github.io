@@ -39,11 +39,12 @@
         <link rel="stylesheet" href="css/owl.carousel.css">
         <link rel="stylesheet" href="css/main.css">
     </head>
-    <body>
+    <body style="background-color: #FFD700">
 
           <header id="header" id="home" style="background:rgba(0,0,0,0.8); height: 71px;">
             <div class="container">
                 <div class="row align-items-center justify-content-between d-flex">
+                    
                     <div id="mobile-nav-toggle" style="position:fixed; top:35.5px; left: 50%; transform: translate(-50%, -50%);">
                         <h1 class="text-white" style="font-size:120%">Pages</h1>
                     </div>
@@ -70,88 +71,107 @@
             </div>
           </header><!-- #header -->
           <body>
-    <div class="limiter">
-        <div class="container-login100" style="min-height: 100%;">
-            <div class="wrap-login100" style="background-color: #FFD700; width: 100%; height: 100%;" >
-                <div style="background-color: #FFD700; text-align:center; padding-top:90px; padding-bottom: 40px">
-                    <img src="" id="profilePic" style="border-radius: 50%; max-width: 40%;"/>
-                    <input type="file" class="custom-file-input"   style="font-weight:bold; color: black; display:none" id="pic1">
-                    <button class="btn btn-secondary btn-link" style="font-weight: bold; color: black; font-size: 17px; display:none" id="pic2">Change picture <i id="pic3" style="display:none" class="fa fa-file-image-o" aria-hidden="true"></i></button>
-                </div>
-                
+             <div class="container" style="padding-top: 90px;"> 
+            <div  id="headertext" class="menu-content pb-60 col-lg-12" >
+                <i id="goback" class="fa fa-arrow-left fa-10x	" style="color:black; font-size: 2em;" ></i>
+            <button class="open-button" id= "teste">Chat</button>
 
-
-                <div class="container" id="normcontainer" style="background-color: white;padding: 5% 8% 15% 8%; min-width: 100%; min-height: 100%;">
-                    <h3>Username</h3>
-                    <div class="typography">
-                        <h4 id="username2"></h4>
-                    </div>
-                    <hr class="new2" style="border: 1px solid #FFD700;">
-                    <h4>Name</h4>
-                    <div class="typography">
-                        <h4 id="name2"></h4>
-                    </div>
-                    <hr class="new2" style="border: 1px solid #FFD700;">
-                    <h4>Email</h4>
-                    <div class="typography">
-                        <h4 id="email2"></h4>
-                    </div>
-                    <hr class="new2" style="border: 1px solid #FFD700;">
-
-                    <div class="container-login100-form-btn">
-                        <div class="wrap-login100-form-btn">
-                            <div class="login100-form-bgbtn"></div>
-                            <button id="editbtn" class="login100-form-btn">
-                                Edit <span class="lnr lnr-pencil"></span>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                  
-
-                <form target="frame"  id="form1" class="login100-form validate-form" style="background-color: white;height:60%; width: 100%; padding: 5% 8% 15% 8%; display: block; display :none">
-                    <span style="padding-top: 10px; font-size: 17px; font-weight: bold; width: 100%;">Name:</span>
-                    <div class="wrap-input100 validate-input" data-validate = "Insert a valid name!">
-                        <input class="input100 single-input form-control" type="text" style="width: 100%" value="" id="name" name="name" placeholder="Name" autocomplete="off" >
-                    </div>
-                    <span style="padding-top: 10px; font-size: 17px; font-weight: bold; width: 100%;">Email:</span>
-
-                    <div class="wrap-input100 validate-input" data-validate = "Insert a valid email!">
-                        <input class="input100 single-input form-control" style="width: 100%" type="text"  value="" id="email" name="name" placeholder="Email" autocomplete="off" >
-                    </div>
-                    <span style="padding-top: 10px; font-size: 17px; font-weight: bold; width: 100%;">Password:</span>
-
-                    <div class="wrap-input100 validate-input" data-validate="Enter the correct password!">
-                        <span class="btn-show-pass">
-                            <i class="zmdi zmdi-eye"></i>
-                        </span>
-                        <input class="input100 single-input form-control" type="password"  value="" id="password" name="password" style="width: 100%" placeholder="Password" autocomplete="off" >
-                    </div>
-                   <div  id="confirmbtn" class="container-login100-form-btn"  style="display:none;padding-bottom: 20px">
-                        <div class="wrap-login100-form-btn">
-                            <div class="login100-form-bgbtn"></div>
-                            <button class="login100-form-btn">
-                               Confirm Changes <span class="lnr lnr-pencil"></span>
-                            </button>
-                        </div>
-                    </div>
-                     <div  id="cancelbtn" class="container-login100-form-btn"  style="display:none">
-                        <div class="wrap-login100-form-btn">
-                            <div class="login100-form-bgbtn"></div>
-                            <button class="login100-form-btn">
-                               Cancel Changes/Go Back <span class="lnr lnr-pencil"></span>
-                            </button>
-                        </div>
-                    </div>
-                    
-                </form>
+            <div class="chat-popup" id="myForm">
+              <form  class="form-container">
+                <h1>Chat</h1>
+            
+                <label for="msg"><b>Message</b></label>
+                <textarea placeholder="Type message.." name="msg" required></textarea>
+            
+                <button type="submit" class="btn">Send</button>
+                <button type="button" class="btn cancel" id="close">Close</button>
+              </form>
+            </div>
             </div>
         </div>
-    </div>
     </body>
         <!-- End footer Area -->		
+    <style>
 
+* {box-sizing: border-box;}
+
+        /* Button used to open the chat form - fixed at the bottom of the page */
+        .open-button {
+          background-color: #555;
+          color: white;
+          width: 50%;
+          padding: 16px 20px;
+          margin-top: 71px;
+          border: none;
+          cursor: pointer;
+          opacity: 0.89;
+          text-align: center;
+          position: absolute;
+          background-color:black;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+        }
+        
+        /* The popup chat - hidden by default */
+        .form-popup {
+          display: none;
+          position: fixed;
+          bottom: 0;
+          right: 15px;
+          border: 3px solid #f1f1f1;
+          z-index: 9;
+        }
+        
+        /* Add styles to the form container */
+        .form-container {
+          max-width: 300px;
+          padding: 10px;
+        
+          background-color: white;
+        }
+        
+        /* Full-width textarea */
+        .form-container textarea {
+          width: 100%;
+          padding: 15px;
+          margin: 5px 0 22px 0;
+          border: none;
+          background: #f1f1f1;
+          resize: none;
+          min-height: 200px;
+        }
+        
+        /* When the textarea gets focus, do something */
+        .form-container textarea:focus {
+          background-color: #ddd;
+          outline: none;
+        }
+        
+        /* Set a style for the submit/login button */
+        .form-container .btn {
+          background-color: #4CAF50;
+          color: white;
+          padding: 16px 20px;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+          margin-bottom:10px;
+          opacity: 0.8;
+        }
+        
+        /* Add a red background color to the cancel button */
+        .form-container .cancel {
+          background-color: red;
+        }
+        
+        /* Add some hover effects to buttons */
+        .form-container .btn:hover, .open-button:hover {
+          opacity: 1;
+        }
+        
+        </style>
         <script src="js/vendor/jquery-2.2.4.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="js/vendor/bootstrap.min.js"></script>			
@@ -168,7 +188,7 @@
         <script src="js/mail-script.js"></script>	
         <script src="js/users.js"></script>
         <script src="js/main.js"></script>
-        <script src="js/EditUser.js"></script>	
+        <script src="js/SendFeedback.js"></script>	
     </body>
 </html>
 

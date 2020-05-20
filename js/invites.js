@@ -52,7 +52,7 @@ function checkButton(btn) {
    			if (inviterpages[i].split("/")[0]==pagename) {
                 pagememberskey=pagename+"/"+pagedescrip;
                 console.log(pagememberskey);
-                console.log(pagemembers[pagememberskey].personlist)
+                //console.log(pagemembers[pagememberskey].personlist)
                
                 var mbrsarr = new Array();
                 mbrsarr= pagemembers[pagememberskey].personlist
