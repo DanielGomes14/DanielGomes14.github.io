@@ -31,7 +31,7 @@ $.each(page, function (index, value) {
                 <div class="card h-100"  style="border-bottom-left-radius: 10%; border-bottom-right-radius: 10%;">
                     <div class="card-header">
                         <h4>`+topic+`</h4>
-                        <i  class="fa fa-trash fa-lg" aria-hidden="true"></i>
+                        <i  href="Pages.html" class="fa fa-trash fa-lg" aria-hidden="true"></i>
                     </div>
                 <div class="card card-body h-100">
                     <ul class="list-group" id="tasks`+index+`">

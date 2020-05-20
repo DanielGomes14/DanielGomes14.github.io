@@ -1,6 +1,7 @@
 
 $(document).ready(function(){
-	"use strict";
+  
+  "use strict";
 
 	var window_width 	 = $(window).width(),
 	window_height 		 = window.innerHeight,
@@ -66,6 +67,19 @@ $(document).ready(function(){
       $('#mobile-nav-toggle i').toggleClass('lnr-cross lnr-menu');
       $('#mobile-body-overly').toggle();
     });
+
+    $("#myForm").css({display :"none"});
+  $(".sendchat").click(function (event) {
+    $('body').removeClass('mobile-nav-active');
+          $('#mobile-nav-toggle i').toggleClass('lnr-cross lnr-menu');
+          $('#mobile-body-overly').fadeOut();
+    $("#myForm").css({display :"block"});
+  });
+  $("#close").click(function (event) {
+    $("#myForm").css({display :"none"});
+      $(".sendchat").css({display :"block"});
+  });  
+
 
     $(document).click(function(e) {
       var container = $("#mobile-nav, #mobile-nav-toggle");
@@ -228,11 +242,7 @@ $(document).ready(function(){
     }
 
 
-        $(document).ready(function() {
-            $('#mc_embed_signup').find('form').ajaxChimp();
-        });      
-
-
+     
 
 
 
