@@ -5,6 +5,7 @@ var pages = user.pages
 var url = window.location.href.split("#")[1];
 url = url.split("_").join(" ");
 var page;
+var globalcounter;
 $.each(pages, function (index, value) {
     if (value.split("/")[0]==url){
         page=value;
@@ -61,7 +62,7 @@ $.each(page, function (index, value) {
         counter+=1;
     	}  
 
-
+        globalcounter=counter
         })
     });
 
@@ -70,7 +71,7 @@ $.each(page, function (index, value) {
     $("#addATask").click(function (event) {
         var index=document.getElementById("grid2").childElementCount
         $("#grid2").append(`
-            <span>Task `+(index/2+1)+`: </span><input value="`+$("#taskToAdd").val()+`" style="width:100%" id="task`+(index/2+1)+`"></input>
+            <span>Task `+(index/2+1)+`: </span><input style="width: 100%;"type="text" class="form-control" placeholder="" aria-label="Add a task" aria-describedby="Add a task" autocomplete="off" value="`+$("#taskToAdd").val()+`" id="task`+(index/2+1)+`"></input>
         `)
         $("#taskToAdd").val("");
     });
@@ -123,12 +124,12 @@ $.each(page, function (index, value) {
                       value=value.split("--")
                       if (index!=0){
                     $("#grid2").append(
-                        `<span>Task `+index+`: </span><input value="`+value[0]+`" style="width:100%" id="task`+index+`"></input>`
+                        `<span>Task `+index+`: </span><input name="inpt" value="`+value[0]+`" style="width:100%" id="task`+index+`"></input>`
                     )}
                   })
                   
             $("#addNote").click(function (event) {
-
+                console.log("ola")
                 var indexTk=document.getElementById("grid2").childElementCount/2
                 var pageEdit=$("#topicID").val();
                 var string="";
@@ -249,5 +250,116 @@ $.each(page, function (index, value) {
          }
          else if(id.includes("addTopicbtn")){
             document.getElementById("topicID").innerHTML = "";
+            var users = JSON.parse(localStorage.getItem("users"));
+            var pagemembers=JSON.parse(localStorage.getItem("pagemembers"));
+            var user= users["currentUser"];
+            var rm = users["currentUser"].pages;
+            var pages = user.pages
+            var url = window.location.href.split("#")[1];
+            url = url.split("_").join(" ");
+            var page;
+            var tasks;
+            var temptopic;
+            $.each(pages, function (index, value) {
+                if (value.split("/")[0]==url){
+                    page=value;
+                    return page;
+                }
+            })
+            
+            $("#addNote").click(function (event) {
+                console.log("ola")
+            
+                var flagtask=false;
+                var counter=0
+                var string="" 
+                var topicname= $('#topicID').val() 
+                $('input[id^=task]').each(function(){
+                     console.log( $('input[id^=task]').length-1 )
+                  if(counter == 0 && this.value == 0){
+                      console.log("boi")
+                      flagtask=true;
+                      return
+                  }
+                  if (counter==$('input[id^=task]').length -1  ){
+                      console.log("fds")
+                      return
+                  }
+
+                    if (counter==$('input[id^=task]').length-2  ){
+                        string+=$("#task"+(counter+1)).val().trim()+"--false"
+                    } else{
+                        string+=$("#task"+(counter+1)).val().trim()+"--false/"
+                    }
+                    counter++;
+                })
+               if(counter==0){
+                   alert("please enter a task!")
+               }
+                if(flagtask){
+                    alert("After adding a task the number of chars can not be zero!")
+                }
+                else{
+                    console.log(url+"/" + string) 
+                    console.log(page+ "//" + topicname+ "/" + string)  
+                   
+                    var tmpindex=0
+                    $.each(pages, function (index, value) {
+                        if (value.split("/")[0]==url){
+                            tmpindex=index
+                        }
+                    })
+                    var pagemembers=JSON.parse(localStorage.getItem("pagemembers"));
+                    var flag=false;
+                    var final=(page+ "//" + topicname+ "/" + string)
+                    $.each(pagemembers,function(index,value){
+                        var indpage=String(value.pagename)
+    
+                        if(indpage.includes(url)){
+                            pagemembers[index].pagename=final
+                            console.log(pagemembers[index].personlist)
+                            $.each(pagemembers[index].personlist,function(index,value){
+                                var counter=-1;
+                                flag=false;
+                                if(users[value] != user){
+                                    for(i = 0;i<users[value].pages.length;i++){
+                                    console.log(users[value])
+                                    counter++
+                                    console.log(users[value].pages[i].split("/")[0])
+                                    console.log(url)
+                                    if(users[value].pages[i].split("/")[0]==url){
+                                        console.log(users[value].pages)
+                                        users[value].pages[i]=final;
+                                        console.log("entrei")
+                                        break
+                                    }
+                                    else if(counter==users[value].pages.length-1){
+                                         users[value].pages.push(final)
+                                         console.log("entrei2")
+                                          break;
+                                        
+                                    }
+                                }
+                                }
+                         
+    
+                            })
+                            
+                        }
+    
+                    })
+                    user.pages[tmpindex]=final
+                    users[user.username].pages[tmpindex]=final
+                    localStorage.setItem("users", JSON.stringify(users));
+                    localStorage.setItem("pagemembers",JSON.stringify(pagemembers))
+                    location.reload();
+
+                
+                    //location.reload()
+                }
+              
+                    console.log(url)
+                    console.log(topicname)
+               }); 
            }
         }

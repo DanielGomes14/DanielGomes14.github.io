@@ -1,5 +1,11 @@
     
 $(document).ready(function () {
+class PageMember{
+    constructor(pagename,personlist){
+        this.pagename=pagename;
+        this.personlist=personlist;
+    }
+}
   var users = JSON.parse(localStorage.getItem("users"));
   var user= users["currentUser"];
   var pages = user.pages
@@ -20,12 +26,30 @@ $(document).ready(function () {
     if ($("#name").val()=="" || $("#desc").val()==""){
       alert("Please fill name and description of the page");
     } else{
-      var res=$("#name").val()+"/"+$("#desc").val()+"/"+$("#col").val();
-      console.log(res);
-      users["currentUser"].pages.push(res);
-      users[users["currentUser"].username].pages.push(res);
-      localStorage.setItem("users", JSON.stringify(users));
-      location.reload();
+      var res=$("#name").val()+"/"+$("#desc").val()
+      var user=$("#col").val();
+      var flag=false;
+      $.each(users,function(index,value){
+         if(value.username == user){
+           flag=true
+         }
+      });
+      if(!flag && user.length>0){
+        alert("User not found!")
+      }
+      else{
+        var invite= $("#name").val()+"/" + users["currentUser"]. username +"/"+ $("#desc").val()
+        var pagemembers=JSON.parse(localStorage.getItem("pagemembers"));
+        pagemembers[res]= new PageMember(res,[users["currentUser"].username])
+        console.log(pagemembers[res])
+        users[user].invitations.push(invite)
+        users["currentUser"].pages.push(res);
+        users[users["currentUser"].username].pages.push(res);
+        localStorage.setItem("users", JSON.stringify(users));
+        localStorage.setItem("pagemembers", JSON.stringify(pagemembers));
+       location.reload();
+      }
+     
     }
   });
 
