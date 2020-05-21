@@ -114,8 +114,10 @@ $(document).ready(function () {
                         return indpage;
                     }
                 })
+                console.log(value1)
                 if (users["currentUser"].username==value1){
                     users["currentUser"].pages[indpage]=final
+                    console.log(users)
                 }
                 users[value1].pages[indpage]=final
             })

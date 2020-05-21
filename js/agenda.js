@@ -10,7 +10,7 @@ $(document).ready(function () {
                 <div class="container-login100-form-btn" style=" padding-top:0%" >
                     <div class="wrap-login100-form-btn" style="z-index:0;width: 100vw; position: relative; margin-left: -50vw; left: 50%; border-radius: 0%;">
                         <div class="login100-form-bgbtn"></div>
-                        <button id="editbtn" class="login100-form-btn " style="width: 100vw; position: relative; margin-left: -50vw; left: 50%;  font-weight:bold;font-size:1.15em">`+spec[0]+`</button>
+                        <button id="editbtn" class="login100-form-btn" style="width: 100vw; position: relative; margin-left: -50vw; left: 50%;  font-weight:bold;font-size:1.15em">`+spec[0]+`</button>
                     </div>
                 </div>
                 <div class="row col-sm-12" style="display: table; min-height: 100px ;width: 100vw; position: relative; margin-left: -50vw; left: 50%;">
