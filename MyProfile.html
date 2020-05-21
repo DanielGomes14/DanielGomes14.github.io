@@ -46,7 +46,7 @@
                 <div class="row align-items-center justify-content-between d-flex">
                     
                     <div id="mobile-nav-toggle" style="position:fixed; top:35.5px; left: 50%; transform: translate(-50%, -50%);">
-                        <h1 class="text-white" style="font-size:120%">Pages</h1>
+                        <h1 class="text-white" style="font-size:120%">Account Settings</h1>
                     </div>
                     <div id="mobile-nav-toggle" style="position:fixed; top:37px; left: 83%; transform: translate(-50%, -50%);">
                         <a href="Pages.html">
@@ -55,33 +55,31 @@
                     </div>
                   <nav id="nav-menu-container">
                     <ul class="nav-menu">
-                      <li class="menu-active"><a href="#Pages.html">Pages</a></li>
-                      <li><a href="Agenda.html">My Reminder Agenda</a></li>
+                      <li class="menu-active"><a href="Pages.html">Pages</a></li>
+                      <li><a href="Agenda.html">Agenda</a></li>
                       <li><a href="Invites.html">Invites</a></li>
-                      <li><a href="MyProfile.html">General  Settings</a></li>
+                      <li><a href="MyProfile.html">Account  Settings</a></li>
                       <li><a href="Help.html">Help</a></li>				          
-                      <li><a class="sendchat" style="color: white;">Chat</a></li>
+                      <li><a class="sendchat" style="color: white;">Send Feedback</a></li>
                       <li><a href="index.html">Logout</a></li>
                     </ul>
                   </nav><!-- #nav-menu-container -->		    		
                 </div>
             </div>
           </header><!-- #header -->
-             <div class="container" style="padding-top: 90px;"> 
-            <div  id="headertext" class="menu-content pb-60 col-lg-12" >
-
-            <div class="chat-popup" id="myForm">
-              <form  class="form-container">
-                <h1>Chat</h1>
-            
-                <label for="msg"><b>Message</b></label>
-                <textarea placeholder="Type message.." name="msg" required></textarea>
-            
-                <button type="submit" class="btn">Send</button>
-                <button type="button" class="btn cancel" id="close">Close</button>
-              </form>
-            </div>
-            </div>
+            <div  id="headertext" class="menu-content col-lg-12" >
+                
+                <div class="chat-popup" id="myForm" style="padding-top: 90px; position: relative;">
+                    <form  class="form-container">
+                      <h1>Send Feedback</h1>
+                  
+                      <label for="msg"><b>Give us your feedback about our application</b></label>
+                      <textarea placeholder="Type message.." name="msg" required></textarea>
+                  
+                      <button id="sendfeed" type="submit" class="btn">Send</button>
+                      <button type="button" class="btn cancel" id="close">Close</button>
+                    </form>
+                  </div>
         </div>
           <body>
     <div class="limiter">
@@ -121,9 +119,26 @@
                         </div>
                     </div>
 
+                    <div class="container2">
+                      <button onclick="document.getElementById('id01').style.display='block'" class="btn btn-danger" style="margin-top: 40px;">Delete Account</button>
+                      </div>
+                      <div id="id01" class="modal">
+                        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+                        <form class="modal-content" action="/action_page.php" style="max-width: 800px;">
+                          <div class="container2" >
+                            <h1>Delete Account</h1>
+                            <p>Are you sure you want to delete your account?</p>
+                          
+                            <div class="clearfix">
+                              <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn" style="min-height:40px">Cancel</button>
+                              <button type="button" onclick="document.getElementById('id01').style.display='none'" id="confdelete" class="deletebtn" style="min-height:40px">Delete</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
                 </div>
-                  
-
+                
+                
                 <form target="frame"  id="form1" class="login100-form validate-form" style="background-color: white;height:60%; width: 100%; padding: 5% 8% 15% 8%; display: block; display :none">
                     <span style="padding-top: 10px; font-size: 17px; font-weight: bold; width: 100%;">Name:</span>
                     <div class="wrap-input100 validate-input" data-validate = "Insert a valid name!">
@@ -163,7 +178,121 @@
             </div>
         </div>
     </div>
-    </body>
+    <style>
+      /* The Modal (background) */
+      .modal {
+display: none; /* Hidden by default */
+position: fixed; /* Stay in place */
+z-index: 1; /* Sit on top */
+left: 0;
+top: 0;
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+overflow: auto; /* Enable scroll if needed */
+background-color: #474e5d;
+padding-top: 50px;
+}
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+
+button:hover {
+opacity:1;
+}
+
+/* Float cancel and delete buttons and add an equal width */
+.cancelbtn, .deletebtn {
+float: left;
+width: 50%;
+}
+
+/* Add a color to the cancel button */
+.cancelbtn {
+background-color: #ccc;
+color: black;
+}
+.button2 {
+background-color: #4CAF50;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+cursor: pointer;
+width: 100%;
+opacity: 0.9;
+}
+.input-group .form-control{
+z-index: 1;
+}
+
+/* Add a color to the delete button */
+.deletebtn {
+background-color: #f44336;
+}
+
+/* Add padding and center-align text to the container */
+.container2 {
+padding: 16px;
+text-align: center;
+}
+
+
+/* Modal Content/Box */
+.modal-content {
+background-color: #fefefe;
+margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+border: 1px solid #888;
+width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+border: 1px solid #f1f1f1;
+margin-bottom: 25px;
+}
+
+/* The Modal Close Button (x) */
+.close {
+position: absolute;
+right: 35px;
+top: 15px;
+font-size: 40px;
+font-weight: bold;
+color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+color: #f44336;
+cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+content: "";
+clear: both;
+display: table;
+}
+
+@media screen and (max-width: 300px) {
+.cancelbtn, .deletebtn {
+width: 100%;
+}
+}
+</style>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+if (event.target == modal) {
+modal.style.display = "none";
+}
+}
+
+</script>    
         <!-- End footer Area -->		
 
         <script src="js/vendor/jquery-2.2.4.min.js"></script>

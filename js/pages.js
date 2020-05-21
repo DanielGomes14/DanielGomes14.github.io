@@ -37,18 +37,22 @@ class PageMember{
       if(!flag && user.length>0){
         alert("User not found!")
       }
-      else{
+      else {
         var invite= $("#name").val()+"/" + users["currentUser"]. username +"/"+ $("#desc").val()
         var pagemembers=JSON.parse(localStorage.getItem("pagemembers"));
         pagemembers[res]= new PageMember(res,[users["currentUser"].username])
         console.log(pagemembers[res])
-        users[user].invitations.push(invite)
+        if (user.length>0){
+        users[user].invitations.push(invite)}
         users["currentUser"].pages.push(res);
         users[users["currentUser"].username].pages.push(res);
         localStorage.setItem("users", JSON.stringify(users));
         localStorage.setItem("pagemembers", JSON.stringify(pagemembers));
        location.reload();
       }
+
+        
+      
      
     }
   });

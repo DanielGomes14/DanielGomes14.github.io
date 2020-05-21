@@ -141,7 +141,7 @@ $(document).ready(function () {
         var title=window.location.href.split("#")[1].split("_").join(" ");
     });
     $("#confdelete").click(function (event) {
-        window.location.assign("index.html")
+        window.location.assign("pages.html")
     })
     $("#editdesc").click(function (event) {
         var newdesc=$("#pagedesc").val();

@@ -9,7 +9,6 @@ $(document).ready(function () {
         $('#normcontainer').css({ display : 'none' })
         $('#cancelbtn').show();
         teste();
-
     })
 
     function updatedata(){
@@ -58,7 +57,9 @@ $(document).ready(function () {
             }
         })    
     })
-  
+    $("#confdelete").click(function (event) {
+        window.location.assign("index.html")
+    })
   
     /*==================================================================
     [ Validate ]*/

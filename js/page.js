@@ -71,7 +71,7 @@ $.each(page, function (index, value) {
     $("#addATask").click(function (event) {
         var index=document.getElementById("grid2").childElementCount
         $("#grid2").append(`
-            <span>Task `+(index/2+1)+`: </span><input style="width: 100%;"type="text" class="form-control" placeholder="" aria-label="Add a task" aria-describedby="Add a task" autocomplete="off" value="`+$("#taskToAdd").val()+`" id="task`+(index/2+1)+`"></input>
+            <span style="padding-top: 10px;  font-size: 17px; font-weight: bold;">Task `+(index/2+1)+`: </span><input style="width: 100%;"type="text" class="form-control" placeholder="" aria-label="Add a task" aria-describedby="Add a task" autocomplete="off" value="`+$("#taskToAdd").val()+`" id="task`+(index/2+1)+`"></input>
         `)
         $("#taskToAdd").val("");
     });
@@ -124,7 +124,7 @@ $.each(page, function (index, value) {
                       value=value.split("--")
                       if (index!=0){
                     $("#grid2").append(
-                        `<span>Task `+index+`: </span><input name="inpt" value="`+value[0]+`" style="width:100%" id="task`+index+`"></input>`
+                        `<span style="padding-top: 10px;  font-size: 17px; font-weight: bold;">Task `+index+`: </span><input name="inpt" value="`+value[0]+`" style="width: 100%;" type="text" class="form-control" placeholder="" aria-label="" aria-describedby="" autocomplete="off"id="task`+index+`"></input>`
                     )}
                   })
                   

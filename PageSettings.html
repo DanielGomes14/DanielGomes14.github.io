@@ -55,33 +55,46 @@
     </head>
     <body style="background-color:#FFD700;  " >
 
-          <header id="header" id="home" style="background:rgba(0,0,0,0.8); height: 71px;">
-            <div class="container">
-                <div class="row align-items-center justify-content-between d-flex">
-                    <div id="mobile-nav-toggle" style="position:fixed; top:35.5px; left: 50%; transform: translate(-50%, -50%);">
-                        <h1 class="text-white" style="font-size:120%">Page Settings</h1>
-                    </div>
-                    <div id="mobile-nav-toggle" style="position:fixed; top:37px; left: 83%; transform: translate(-50%, -50%);">
-                        <a href="Pages.html">
-                            <img src="img/logo.png"  style="border-radius: 2%; height:8vw;max-height:30px" alt="" title="" />
-                        </a>
-                    </div>
-                  <nav id="nav-menu-container">
-                    <ul class="nav-menu">
-                      <li class="menu-active"><a href="Pages.html">Pages</a></li>
-                      <li><a href="Agenda.html">My Reminder Agenda</a></li>
-                      <li><a href="Invites.html">Invites</a></li>
-                      <li><a href="MyProfile.html">General  Settings</a></li>
-                      <li><a href="Help.html">Help</a></li>				          
-                      <li><a href="SendFeedback.html">Send Feedback</a></li> i>
-                      
-                        <li><a  href="index.html">Logout</a></li>
-                       
-                    </ul>
-                  </nav><!-- #nav-menu-container -->		    		
+      <header id="header" id="home" style="background:rgba(0,0,0,0.8); height: 71px;">
+        <div class="container">
+            <div class="row align-items-center justify-content-between d-flex">
+                
+                <div id="mobile-nav-toggle" style="position:fixed; top:35.5px; left: 50%; transform: translate(-50%, -50%);">
+                    <h1 class="text-white" style="font-size:120%">Page Settings</h1>
                 </div>
+                <div id="mobile-nav-toggle" style="position:fixed; top:37px; left: 83%; transform: translate(-50%, -50%);">
+                    <a href="Pages.html">
+                        <img src="img/logo.png"  style="border-radius: 2%; height:8vw;max-height:30px" alt="" title="" />
+                    </a>
+                </div>
+              <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                  <li class="menu-active"><a href="Pages.html">Pages</a></li>
+                  <li><a href="Agenda.html">Agenda</a></li>
+                  <li><a href="Invites.html">Invites</a></li>
+                  <li><a href="MyProfile.html">Account  Settings</a></li>
+                  <li><a href="Help.html">Help</a></li>				          
+                  <li><a class="sendchat" style="color: white;">Send Feedback</a></li>
+                  <li><a href="index.html">Logout</a></li>
+                </ul>
+              </nav><!-- #nav-menu-container -->		    		
             </div>
-          </header><!-- #header -->
+        </div>
+      </header><!-- #header -->
+        <div  id="headertext" class="menu-content col-lg-12" >
+            
+        <div class="chat-popup" id="myForm" style="padding-top: 90px; position: relative;">
+          <form  class="form-container">
+            <h1>Send Feedback</h1>
+                  
+            <label for="msg"><b>Give us your feedback about our application</b></label>
+            <textarea placeholder="Type message.." name="msg" required></textarea>
+        
+            <button id="sendfeed" type="submit" class="btn">Send</button>
+            <button type="button" class="btn cancel" id="close">Close</button>
+          </form>
+        </div>
+    </div>
 
 	<div class ="container " style="padding-top: 85px;">
               <div  id="headertext" class="menu-content pb-60 col-lg-12" >
@@ -133,14 +146,14 @@
                     </div>
               </br>
       <div class="container2">        
-<button onclick="document.getElementById('id01').style.display='block'" class="btn btn-danger" style="margin-top: 40px;">Delete Account</button>
+<button onclick="document.getElementById('id01').style.display='block'" class="btn btn-danger" style="margin-top: 40px;">Delete Page</button>
 </div>
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
   <form class="modal-content" action="/action_page.php" style="max-width: 800px;">
     <div class="container2" >
-      <h1>Delete Account</h1>
-      <p>Are you sure you want to delete your account?</p>
+      <h1>Delete Page</h1>
+      <p>Are you sure you want to delete this page?</p>
     
       <div class="clearfix">
         <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn" style="min-height:40px">Cancel</button>

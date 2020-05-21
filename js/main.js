@@ -9,7 +9,7 @@ $(document).ready(function(){
 	header_height_static = $(".site-header.static").outerHeight(),
 	fitscreen 			 = window_height - header_height;
 
-
+ 
 	$(".fullscreen").css("height", window_height)
 	$(".fitscreen").css("height", fitscreen);
 
@@ -76,6 +76,10 @@ $(document).ready(function(){
     $("#myForm").css({display :"block"});
   });
   $("#close").click(function (event) {
+    $("#myForm").css({display :"none"});
+      $(".sendchat").css({display :"block"});
+  });  
+  $("#sendfeed").click(function (event) {
     $("#myForm").css({display :"none"});
       $(".sendchat").css({display :"block"});
   });  
