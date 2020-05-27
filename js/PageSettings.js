@@ -143,6 +143,26 @@ $(document).ready(function () {
         var title=window.location.href.split("#")[1].split("_").join(" ");
     });
     $("#confdelete").click(function (event) {
+        var title=window.location.href.split("#")[1].split("_").join(" ");
+        var delmembers = pageMemb.personlist
+        $.each(delmembers,function(index,value){
+            console.log(pageMemb.pagename)
+            var usr = value
+            $.each(users[value].pages,function(index,value){
+                if (value==pageMemb.pagename){
+                        users[usr].pages.splice(index,1)
+                        users["currentUser"].pages.splice(index,1)
+                }
+            })
+        })
+        $.each(pagemembers,function(index,value){
+                if (value.pagename == (pageMemb.pagename)) {
+                     delete pagemembers[index]
+                }
+               
+        });
+        localStorage.setItem("users", JSON.stringify(users));
+        localStorage.setItem("pagemembers",JSON.stringify(pagemembers))
         window.location.assign("pages.html")
     })
     $("#editdesc").click(function (event) {
