@@ -53,16 +53,21 @@ $(document).ready(function () {
     $("#pagedesc").val(desc);
 
     $.each(members, function (index, value) {
-        $("#memberpart").append(`
-        <div class="row" style="width: 100%;">
-            <div style="width: 80%; padding-left: 20px;"><h5 style="padding-left: 10px">`+value+`</h5></div>
-            <div style="width: 20%; text-align: right;"><i  class="fa fa-trash fa-lg" aria-hidden="true"></i></div>
-        </div>
-        
-        
-        `)
-
-    })
+        if (value==users["currentUser"].username){
+            $("#memberpart").append(`
+            <div class="row" style="width: 100%;">
+                <div style="width: 80%; padding-left: 20px;"><h5 style="padding-left: 10px">`+value+` (You)</h5></div>
+            </div>
+            `)
+        } else{
+            $("#memberpart").append(`
+            <div class="row" style="width: 100%;">
+                <div style="width: 80%; padding-left: 20px;"><h5 style="padding-left: 10px">`+value+`</h5></div>
+                <div style="width: 20%; text-align: right;"><i  class="fa fa-trash fa-lg" aria-hidden="true"></i></div>
+            </div>
+            `)
+        }
+    });
 
     $("#membersgrid").append(`  
     <br>
