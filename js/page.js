@@ -129,7 +129,6 @@ $.each(page, function (index, value) {
                   })
                   
             $("#addNote").click(function (event) {
-                console.log("ola")
                 var indexTk=document.getElementById("grid2").childElementCount/2
                 var pageEdit=$("#topicID").val();
                 var string="";
@@ -181,7 +180,6 @@ $.each(page, function (index, value) {
                 });
 
                 temp+=string
-                console.log(temp)
                 page.splice(indexToRemove,1);
                 page.push(temp)
                 var final=""
@@ -208,25 +206,18 @@ $.each(page, function (index, value) {
 
                     if(indpage.includes(url)){
                         pagemembers[index].pagename=final
-                        console.log(pagemembers[index].personlist)
                         $.each(pagemembers[index].personlist,function(index,value){
                             var counter=-1;
                             flag=false;
                             if(users[value] != user){
                                 for(i = 0;i<users[value].pages.length;i++){
-                                console.log(users[value])
                                 counter++
-                                console.log(users[value].pages[i].split("/")[0])
-                                console.log(url)
                                 if(users[value].pages[i].split("/")[0]==url){
-                                    console.log(users[value].pages)
                                     users[value].pages[i]=final;
-                                    console.log("entrei")
                                     break
                                 }
                                 else if(counter==users[value].pages.length-1){
                                      users[value].pages.push(final)
-                                     console.log("entrei2")
                                       break;
                                     
                                 }
@@ -249,7 +240,7 @@ $.each(page, function (index, value) {
           
          }
          else if(id.includes("addTopicbtn")){
-            document.getElementById("topicID").innerHTML = "";
+            $("#topicID").val( "");
             var users = JSON.parse(localStorage.getItem("users"));
             var pagemembers=JSON.parse(localStorage.getItem("pagemembers"));
             var user= users["currentUser"];
@@ -268,21 +259,17 @@ $.each(page, function (index, value) {
             })
             
             $("#addNote").click(function (event) {
-                console.log("ola")
             
                 var flagtask=false;
                 var counter=0
                 var string="" 
                 var topicname= $('#topicID').val() 
                 $('input[id^=task]').each(function(){
-                     console.log( $('input[id^=task]').length-1 )
                   if(counter == 0 && this.value == 0){
-                      console.log("boi")
                       flagtask=true;
                       return
                   }
                   if (counter==$('input[id^=task]').length -1  ){
-                      console.log("fds")
                       return
                   }
 
@@ -300,8 +287,6 @@ $.each(page, function (index, value) {
                     alert("After adding a task the number of chars can not be zero!")
                 }
                 else{
-                    console.log(url+"/" + string) 
-                    console.log(page+ "//" + topicname+ "/" + string)  
                    
                     var tmpindex=0
                     $.each(pages, function (index, value) {
@@ -317,25 +302,18 @@ $.each(page, function (index, value) {
     
                         if(indpage.includes(url)){
                             pagemembers[index].pagename=final
-                            console.log(pagemembers[index].personlist)
                             $.each(pagemembers[index].personlist,function(index,value){
                                 var counter=-1;
                                 flag=false;
                                 if(users[value] != user){
                                     for(i = 0;i<users[value].pages.length;i++){
-                                    console.log(users[value])
                                     counter++
-                                    console.log(users[value].pages[i].split("/")[0])
-                                    console.log(url)
                                     if(users[value].pages[i].split("/")[0]==url){
-                                        console.log(users[value].pages)
                                         users[value].pages[i]=final;
-                                        console.log("entrei")
                                         break
                                     }
                                     else if(counter==users[value].pages.length-1){
                                          users[value].pages.push(final)
-                                         console.log("entrei2")
                                           break;
                                         
                                     }
@@ -358,8 +336,6 @@ $.each(page, function (index, value) {
                     //location.reload()
                 }
               
-                    console.log(url)
-                    console.log(topicname)
                }); 
            }
         }

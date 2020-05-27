@@ -10,10 +10,11 @@ $(document).ready(function () {
                 <div class="container-login100-form-btn" style=" padding-top:0%" >
                     <div class="wrap-login100-form-btn" style="z-index:0;width: 100vw; position: relative; margin-left: -50vw; left: 50%; border-radius: 0%;">
                         <div class="login100-form-bgbtn"></div>
-                        <button id="editbtn" class="login100-form-btn" style="width: 100vw; position: relative; margin-left: -50vw; left: 50%;  font-weight:bold;font-size:1.15em">`+spec[0]+`</button>
+                        <button id="editbtn" style="cursor:default"  class="login100-form-btn" style="width: 100vw; position: relative; margin-left: -50vw; left: 50%;  font-weight:bold;font-size:1.15em">`+spec[0]+`</button>
                     </div>
                 </div>
                 <div class="row col-sm-12" style="display: table; min-height: 100px ;width: 100vw; position: relative; margin-left: -50vw; left: 50%;">
+                     <i style="margin-top:37px;font-size:1.8em;color:black" class="fa fa-pencil fa-lg"></i>
                     <span style="display: table-cell; vertical-align: middle; text-align: center; border-right:  6px solid white; width: 30%; color: black; font-weight:bold;font-size:1.15em">`+spec[1]+`</span>
                     <span style="display: table-cell; vertical-align: middle; text-align: center; width: 70%;  color: black; font-weight:bold; font-size:1.15em">`+spec[2]+`</span>
                     <i  style="text-align:right; margin-top:30px;color:black;font-size:1.8em;"  class="fa fa-trash fa-lg" aria-hidden="true"></i>

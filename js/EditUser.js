@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var users = JSON.parse(localStorage.getItem("users"));
    	updatedata();
-    $('#editbtn').click(function(){
+    $('#editbtnprofile').click(function(){
         $('#pic1').css({ display : 'inline-block' })
         $('#pic2').css({ display : 'inline-block' })
         $('#pic3').css({ display : 'inline-block' })
