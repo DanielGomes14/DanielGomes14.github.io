@@ -85,19 +85,22 @@ $(document).ready(function(){
   });
   $("#close").click(function (event) {
     $('body').toggleClass('mobile-nav-active');
-      $('#mobile-nav-toggle i').toggleClass('lnr-cross lnr-menu');
-      $('#mobile-body-overly').toggle();
+    $('#mobile-nav-toggle i').toggleClass('lnr-cross lnr-menu');
+    $('#mobile-body-overly').toggle();
     $("#myForm").css({display :"none"});
-      $(".sendchat").css({display :"block"});
+    $(".sendchat").css({display :"block"});
   });  
   $("#sendfeed").click(function (event) {
-    $('body').toggleClass('mobile-nav-active');
-      $('#mobile-nav-toggle i').toggleClass('lnr-cross lnr-menu');
-      $('#mobile-body-overly').toggle();
-    $("#myForm").css({display :"none"});
-      $(".sendchat").css({display :"block"});
+    $('.chat-popup').append(`<div class='temp' style="padding: 20px; background-color: green; color: white; text-align:center; width:300px">Message Sent. Thank you for the feedback!<div>`);
+    setTimeout(function(){
+      $("#myForm").css({display :"none"});
+      $(".temp").css({display :"none"});
+      $(".sendchat").css({display :"block"});    }, 1000); 
   });  
-
+  
+  function sleep (time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+  }
 
     $(document).click(function(e) {
       var container = $("#mobile-nav, #mobile-nav-toggle");

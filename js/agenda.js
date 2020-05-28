@@ -41,7 +41,7 @@ $(document).ready(function () {
         if ($("#date").val()=="" || $("#time").val()=="" || $("#note").val()==""){
             alert("Please fill all parameters;")
         } else{
-            var res=$("#date").val()+"/./"+$("#time").val()+"/./"+$("#note").val();
+            var res=new Date($("#date").val()).toDateString()+"/./"+$("#time").val()+"/./"+$("#note").val();
             console.log(res);
             users["currentUser"].reminders.push(res);
             users[users["currentUser"].username].reminders.push(res);

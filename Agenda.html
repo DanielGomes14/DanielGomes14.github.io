@@ -81,7 +81,7 @@
 
             <div  id="headertext" class="menu-content col-lg-12" >
                 
-            <div class="chat-popup" id="myForm" style="padding-top: 90px; position: relative;">
+            <div class="chat-popup" id="myForm" style="padding-top: 90px; position: relative; display: none">
               <form  class="form-container">
                 <h1>Send Feedback</h1>
                   
@@ -102,8 +102,14 @@
                 <div class="modal-content">
                     <h1>Reminder</h1>
                     <br>
-                    <span style="padding-top: 10px; font-size: 17px; font-weight: bold;">Date:<input value="" style="width: 100%; font-size: 1em;" id="date" type="text" class="form-control"  autocomplete="off"></input></span>
-                    <span style="padding-top: 10px; font-size: 17px; font-weight: bold;">Time: <input value="" style="width: 100%; font-size: 1em;" id="time" type="text" class="form-control"  autocomplete="off"></input></span>
+                    <div class="row">
+                        <div class="col-md-6">
+                        <span style="padding-top: 10px; font-size: 17px; font-weight: bold;">Date:<input type="date"   value="" style="width: 100%; font-size: 1em;" id="date" type="text" class="form-control"  autocomplete="off"></input></span>
+                        </div>
+                        <div class="col-md-6">
+                        <span style="padding-top: 10px; font-size: 17px; font-weight: bold;">Time: <input type="time"  value="" style="width: 100%; font-size: 1em;" id="time" type="text" class="form-control"  autocomplete="off"></input></span>
+                        </div>  
+                </div> 
                     <span style="padding-top: 10px; font-size: 17px; font-weight: bold;">Note: <input value="" style="width: 100%; font-size: 1em;" id="note" type="text" class="form-control"  autocomplete="off"></input></span>
                     <br>
                     <div class="row" style="padding-left: 4%;padding-top: 20px;">
