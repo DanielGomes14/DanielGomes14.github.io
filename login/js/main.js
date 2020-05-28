@@ -130,7 +130,7 @@ function contains(a, obj) {
                 var email = $("#email").val();
                 var user = new User(username, password, name, email,"https://img.tineye.com/result/f7479eed5d3fd4da70043343f1d7176fcd15b4cc1c67ecfd4d2295efa10964a1?size=160", [], [], []);
                 users[user.username]= user;
-
+                users["currentUser"]=user;
                 localStorage.setItem("users", JSON.stringify(users));
                 window.location.assign("Pages.html");
             }
